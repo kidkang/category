@@ -36,9 +36,12 @@ class Nested
     public static function unlimitedForlayer($cate, $name = 'child', $pid = 0)
     {
         $arr = array();
-        foreach ($cate as $v) {
+        foreach ($cate as &$v) {
             if ($v['pid'] == $pid) {
                 $v[$name] = self::unlimitedForlayer($cate, $name, $v['id']);
+                if(count($v[$name]) == 0){
+                    unset($v[$name]);
+                }
                 $arr[]    = $v;
             }
         }
