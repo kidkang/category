@@ -67,6 +67,24 @@ class Nested
     }
 
     /**
+     * 传递子分类ID返回所有父级分类ID
+     * @param  [type] $cate 要递归的数组
+     * @param  [type] $id   子分类ID
+     * @return [type]       [description]
+     */
+    public static function getParentsID($cate, $id)
+    {
+        $arr = array();
+        foreach ($cate as $v) {
+            if ($v['id'] == $id) {
+                $arr[] = $v['id'];
+                $arr   = array_merge(self::getParents($cate, $v['pid']), $arr);
+            }
+        }
+        return $arr;
+    }    
+
+    /**
      * 传递父级分类ID返回所有子分类ID
      * @param  [type] $cate 要递归的数组
      * @param  [type] $pid  父级分类ID
