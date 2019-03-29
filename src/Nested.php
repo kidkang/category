@@ -78,7 +78,7 @@ class Nested
         foreach ($cate as $v) {
             if ($v['id'] == $id) {
                 $arr[] = $v['id'];
-                $arr   = array_merge(self::getParents($cate, $v['pid']), $arr);
+                $arr   = array_merge(self::getParentsID($cate, $v['pid']), $arr);
             }
         }
         return $arr;
