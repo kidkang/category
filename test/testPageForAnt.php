@@ -17,5 +17,8 @@ $page = [
 
 
 $page = Tool::pageForAnt($page);
+//print_r($page);
+
+$page = Tool::pageForAnt([]);
 print_r($page);
 ?>

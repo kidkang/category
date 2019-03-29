@@ -15,9 +15,9 @@ class Tool{
     public static function pageForAnt($data){
         //current pageSize total
         $page =[];
-        $page['current'] = (int) $data['current_page'];
-        $page['total'] = (int) $data['total'];
-        $page['pageSize'] = (int) $data['per_page'];
+        $page['current'] = isset($data['current_page']) ? (int) $data['current_page'] : 1;
+        $page['total'] = isset($data['total']) ? (int) $data['total'] : 0;
+        $page['pageSize'] =isset($data['per_page']) ?  (int) $data['per_page'] : 0;
         return $page;
     }
 }
